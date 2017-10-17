@@ -13,12 +13,14 @@ namespace P05_Short_Words_Sorted
            .Split(new[] { ' ', '.', ',', ':', ';', '(', ')', '[', ']', '"', '\'', '\\', '/', '!', '?' }, StringSplitOptions.RemoveEmptyEntries)
            .ToList();
 
-            var result = nums
+            nums = nums
                 .Where(x => x.Length < 5)
                 .OrderBy(x => x)
-                .Distinct();
+                .Distinct()
+                .ToList();
+            
 
-            Console.WriteLine(string.Join(", " , result));
+            Console.WriteLine(string.Join(", " , nums));
         }
     }
 }
