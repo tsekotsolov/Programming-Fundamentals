@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02_Advertisement Message",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04_Average Grades", "P04_Average Grades\P04_Average Grades.csproj", "{D1C5F4F4-4C3F-4090-B22F-15F1D251D4EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P03_Intersection of Circles", "P03_Intersection of Circles\P03_Intersection of Circles.csproj", "{02E4A85E-A765-49E1-9AD0-4E4D9D986913}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D1C5F4F4-4C3F-4090-B22F-15F1D251D4EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1C5F4F4-4C3F-4090-B22F-15F1D251D4EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1C5F4F4-4C3F-4090-B22F-15F1D251D4EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02E4A85E-A765-49E1-9AD0-4E4D9D986913}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02E4A85E-A765-49E1-9AD0-4E4D9D986913}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02E4A85E-A765-49E1-9AD0-4E4D9D986913}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02E4A85E-A765-49E1-9AD0-4E4D9D986913}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
