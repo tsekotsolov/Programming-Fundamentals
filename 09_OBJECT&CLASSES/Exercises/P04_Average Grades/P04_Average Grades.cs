@@ -12,13 +12,13 @@ namespace P04_Average_Grades
         {
             public string Name { get; set; }
             public double[] Grades { get; set; }
-            public double Average
-            {
-                get
-                {
-                    return Grades.Average();
-                }
-            }
+            public double Average => Grades.Average();
+            //{
+            //    get
+            //    {
+            //        return Grades.Average();
+            //    }
+            //}
 
         }
 
