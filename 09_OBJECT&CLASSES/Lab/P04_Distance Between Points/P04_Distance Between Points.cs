@@ -23,6 +23,10 @@ namespace P04_Distance_Between_Points
 
             Console.WriteLine($"{ distance:f3}");
 
+
+
+            
+
         }
 
         static Point ReadPoint()
@@ -43,5 +47,7 @@ namespace P04_Distance_Between_Points
             int deltaY = p2.Y - p1.Y;
             return Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
         }
+
+
     }
 }
