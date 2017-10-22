@@ -43,7 +43,7 @@ namespace P04_Average_Grades
 
             }
 
-
+        
             students = students
                 .Where(s => s.Average >= 5.00)
                 .OrderBy(s => s.Name)
