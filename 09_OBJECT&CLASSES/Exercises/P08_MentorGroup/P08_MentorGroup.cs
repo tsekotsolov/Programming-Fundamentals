@@ -30,7 +30,6 @@ namespace P08_MentorGroup
                 var dates = input
                     .Skip(1)
                     .Select(x => DateTime.ParseExact(x, "dd/MM/yyyy", CultureInfo.InvariantCulture))
-                    .Distinct()
                     .OrderBy(x => x)
                     .ToList();
 
