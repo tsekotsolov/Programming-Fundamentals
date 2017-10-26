@@ -48,6 +48,7 @@ namespace P08_MentorGroup
                 {
                     
                     studentsDict[name].Dates.AddRange(currentstudent.Dates);
+                   
                 }
 
                 inputLineOfDates = Console.ReadLine();
@@ -79,8 +80,6 @@ namespace P08_MentorGroup
 
                 inputLineOfComments = Console.ReadLine();
             }
-
-            
 
             foreach (var student in studentsDict)
             {
