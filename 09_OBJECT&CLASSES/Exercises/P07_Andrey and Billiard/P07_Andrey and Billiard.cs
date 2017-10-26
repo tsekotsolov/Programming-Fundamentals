@@ -46,7 +46,6 @@ namespace P07_Andrey_and_Billiard
 
                 Dictionary<string, int> shopList = new Dictionary<string, int>();
 
-
                 if (menu.ContainsKey(product))
                 {
                     var bill = qty * menu[product];
@@ -62,7 +61,6 @@ namespace P07_Andrey_and_Billiard
                     {
                         shopList.Add(product, qty);
                         customerDataBase.Add(name, customer);
-
                     }
 
                     else if (customerDataBase[name].ShopList.ContainsKey(product))
@@ -73,7 +71,6 @@ namespace P07_Andrey_and_Billiard
 
                     else
                     {
-
                         customerDataBase[name].ShopList.Add(product, qty);
                         customerDataBase[name].Bill += bill;
                     }
