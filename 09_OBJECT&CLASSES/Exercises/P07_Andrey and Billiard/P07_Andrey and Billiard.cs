@@ -11,120 +11,90 @@ namespace P07_Andrey_and_Billiard
         class Customer
         {
             public string Name { get; set; }
-            public Dictionary<string, int> CustomerWishList { get; set; } = new Dictionary<string, int>();
-            public decimal ClientBill { get; set; }
-
+            public Dictionary<string, int> ShopList { get; set; } = new Dictionary<string, int>();
+            public decimal Bill { get; set; }
         }
+
         static void Main()
         {
-            int numberofInputs = int.Parse(Console.ReadLine());
-
             var menu = new Dictionary<string, decimal>();
-
-            for (int i = 0; i < numberofInputs; i++)
+            int productsInMenu = int.Parse(Console.ReadLine());
+            for (int i = 0; i < productsInMenu; i++)
             {
-                var inputLine = Console.ReadLine().Split('-');
+                var productsInput = Console.ReadLine().Split('-');
 
-                if (!menu.ContainsKey(inputLine[0]))
+                var product = productsInput.First();
+                var productPrice = productsInput
+                    .Skip(1)
+                    .Select(decimal.Parse);
+
+                if (!menu.ContainsKey(product))
                 {
-                    menu[inputLine[0]] = 0;
+                    menu.Add(product, 0.0M);
                 }
-
-                menu[inputLine[0]] = decimal.Parse(inputLine[1]);
+                menu[product] = productPrice.First();
             }
 
+            SortedDictionary<string, Customer> customerDataBase = new SortedDictionary<string, Customer>();
 
-
-
-            var line = Console.ReadLine();
-
-            var nameWishList = new Dictionary<string, Dictionary<string, int>>();
-            var nameBill = new SortedDictionary<string, decimal>();
-            var shopList = new Dictionary<string, int>();
+            var input = Console.ReadLine();
             var totalBill = 0.0M;
-
-            while (line != "end of clients")
+            while (input != "end of clients")
             {
+                var inputLine = input.Split('-', ',');
+                var name = inputLine.First();
+                var product = inputLine[1];
+                var qty = inputLine.Skip(2).Take(1).Select(int.Parse).First();
 
-                var customersInput = line.Split('-', ',');
+                Dictionary<string, int> shopList = new Dictionary<string, int>();
 
 
-                Customer currentCustomer = new Customer();
-
-                //currentCustomer = createCustomer(customersInput);
-
-                currentCustomer.Name = customersInput[0];
-                currentCustomer.CustomerWishList[customersInput[1]] = int.Parse(customersInput[2]); 
-
-                if (!nameWishList.ContainsKey(currentCustomer.Name) && currentCustomer.CustomerWishList.ContainsKey(customersInput[1]) == menu.ContainsKey(customersInput[1]))
+                if (menu.ContainsKey(product))
                 {
-                    nameWishList[currentCustomer.Name] = currentCustomer.CustomerWishList;
 
-                }
-                if (nameWishList.ContainsKey(currentCustomer.Name))
-                {
-                    foreach (var name in nameWishList)
+
+                    var bill = qty * menu[product];
+
+                    Customer customer = new Customer()
                     {
-                        foreach (var productqtyPair in name.Value)
-                        {
-                            if (productqtyPair.Key.Contains(customersInput[1]))
-                            {
-                                productqtyPair.Value += int.Parse(customersInput[2]);
-                            }
-                        }
+                        Name = name,
+                        ShopList = shopList,
+                        Bill = bill
+                    };
+
+                    if (!customerDataBase.ContainsKey(name))
+                    {
+                        shopList.Add(product, qty);
+                        customerDataBase.Add(name, customer);
+
                     }
+
+                    else if (customerDataBase[name].ShopList.ContainsKey(product))
+                    {
+                        customerDataBase[name].ShopList[product] += qty;
+                        customerDataBase[name].Bill += bill;
+                    }
+                    totalBill += bill;
                 }
 
-                if (!nameBill.ContainsKey(currentCustomer.Name) && nameWishList.ContainsKey(currentCustomer.Name))
-                {
-
-                    currentCustomer.ClientBill = int.Parse(customersInput[2]) * menu[customersInput[1]];
-
-                    nameBill[currentCustomer.Name] = currentCustomer.ClientBill;
-
-                    shopList[customersInput[1]] = int.Parse(customersInput[2]);
-                }
-
-
-                totalBill += currentCustomer.ClientBill;
-
-                line = Console.ReadLine();
+                input = Console.ReadLine();
             }
 
-
-
-
-            foreach (var client in nameBill)
+            foreach (var client in customerDataBase)
             {
                 Console.WriteLine(client.Key);
 
-                foreach (var item in nameWishList)
+                foreach (var item in client.Value.ShopList)
                 {
-                    if (client.Key == item.Key)
-                    {
-                        Console.Write($"-- {string.Join(" ", item.Value.Keys)} -");
-                        Console.WriteLine($" {string.Join(" ", item.Value.Values)}");
-                    }
-
-
-
+                    Console.WriteLine($"-- {item.Key} - {item.Value} ");
                 }
 
-                Console.WriteLine($"Bill: {client.Value:f2}");
+                Console.WriteLine($"Bill: {client.Value.Bill:f2}");
 
             }
 
-
             Console.WriteLine($"Total bill: {totalBill:f2}");
-
         }
 
-        //private static Customer createCustomer(string[] customers)
-        //{
-        //    Customer customer = new Customer();
-        //    customer.Name = customers[0];
-        //    customer.CustomerWishList[customers[1]] = int.Parse(customers[2]);
-        //    return customer;
-        //}
     }
 }
