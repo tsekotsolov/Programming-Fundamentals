@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace P07_Andrey_and_Billiard
 {
@@ -51,8 +49,6 @@ namespace P07_Andrey_and_Billiard
 
                 if (menu.ContainsKey(product))
                 {
-
-
                     var bill = qty * menu[product];
 
                     Customer customer = new Customer()
@@ -72,6 +68,13 @@ namespace P07_Andrey_and_Billiard
                     else if (customerDataBase[name].ShopList.ContainsKey(product))
                     {
                         customerDataBase[name].ShopList[product] += qty;
+                        customerDataBase[name].Bill += bill;
+                    }
+
+                    else
+                    {
+
+                        customerDataBase[name].ShopList.Add(product, qty);
                         customerDataBase[name].Bill += bill;
                     }
                     totalBill += bill;
