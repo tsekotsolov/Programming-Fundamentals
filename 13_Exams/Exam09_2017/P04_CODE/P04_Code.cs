@@ -22,47 +22,61 @@ namespace P04_CODE
 
             Dictionary<string, Squad> majorSquad = new Dictionary<string, Squad>();
 
+
+
             while (input != "Blaze it!")
             {
                 var inputLine = input.Split(new char[] { ' ', '-', '>' }, StringSplitOptions.RemoveEmptyEntries);
                 var teamLeader = inputLine.First();
                 var teamMember = inputLine.Skip(1).First();
-
-
-
+                
                 List<string> members = new List<string>();
                 members.Add(teamMember);
 
                 Squad squad = new Squad()
                 {
-
                     TeamLeader = teamLeader,
-                    TeamMembers = members,
-
+                    TeamMembers = members
                 };
-
+                
                 if (!majorSquad.ContainsKey(teamLeader) && teamLeader != teamMember)
                 {
                     majorSquad.Add(teamLeader, squad);
+
                 }
-
-                else if (majorSquad.ContainsKey(teamLeader) && teamLeader != teamMember && !majorSquad[teamLeader].TeamMembers.Contains(teamMember))
-
+                else if (majorSquad.ContainsKey(teamLeader) && teamLeader != teamMember
+                    && !majorSquad[teamLeader].TeamMembers.Contains(teamMember))
 
                 {
                     majorSquad[teamLeader].TeamMembers.AddRange(members);
-
                 }
-
-
-
-                //majorSquad[teamLeader]!=majorSquad[teamMember] //dali tekustia chlen ne e niakade lider
-                //bool istrue = majorSquad[teamLeader].TeamMembers.Contains(teamMember) != majorSquad[teamMember].TeamMembers.Contains(teamLeader);
-
 
                 input = Console.ReadLine();
             }
 
+            var newDict = new Dictionary<string, int>();
+            foreach (var teamleader in majorSquad)
+            {
+                var teamMembersCount = teamleader.Value.TeamMembers.Count;
+
+                var team = teamleader.Value.TeamMembers;
+
+                for (int i = 0; i < team.Count; i++)
+                {
+                    if (majorSquad.ContainsKey(team[i]) && majorSquad[team[i]].TeamMembers.Contains(teamleader.Key))
+                    {
+                        teamMembersCount--;
+                    }
+                }
+
+                newDict.Add(teamleader.Key, teamMembersCount);
+            }
+
+            foreach (var teamleader in newDict.OrderByDescending(x => x.Value))
+            {
+                Console.WriteLine($"{teamleader.Key} : {teamleader.Value} ");
+            }
         }
     }
+
 }
