@@ -23,7 +23,7 @@ namespace P04_CODE
                 var inputLine = input.Split(new char[] { ' ', '-', '>' }, StringSplitOptions.RemoveEmptyEntries);
                 var teamLeader = inputLine.First();
                 var teamMember = inputLine.Skip(1).First();
-                
+
                 List<string> members = new List<string>();
                 members.Add(teamMember);
 
@@ -32,7 +32,7 @@ namespace P04_CODE
                     TeamLeader = teamLeader,
                     TeamMembers = members
                 };
-                
+
                 if (!majorSquad.ContainsKey(teamLeader) && teamLeader != teamMember)
                 {
                     majorSquad.Add(teamLeader, squad);
@@ -48,7 +48,7 @@ namespace P04_CODE
                 input = Console.ReadLine();
             }
 
-            var newDict = new Dictionary<string, int>();
+            var sorterDict = new Dictionary<string, int>();
             foreach (var teamleader in majorSquad)
             {
                 var teamMembersCount = teamleader.Value.TeamMembers.Count;
@@ -63,9 +63,9 @@ namespace P04_CODE
                     }
                 }
 
-                newDict.Add(teamleader.Key, teamMembersCount);
+                sorterDict.Add(teamleader.Key, teamMembersCount);
             }
-            foreach (var teamleader in newDict.OrderByDescending(x => x.Value))
+            foreach (var teamleader in sorterDict.OrderByDescending(x => x.Value))
             {
                 Console.WriteLine($"{teamleader.Key} : {teamleader.Value} ");
             }
