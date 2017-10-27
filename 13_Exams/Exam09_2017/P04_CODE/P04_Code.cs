@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace P04_CODE
 {
@@ -13,16 +11,12 @@ namespace P04_CODE
             public string TeamLeader { get; set; }
 
             public List<string> TeamMembers { get; set; } = new List<string>();
-
-
         }
         static void Main()
         {
             var input = Console.ReadLine();
 
             Dictionary<string, Squad> majorSquad = new Dictionary<string, Squad>();
-
-
 
             while (input != "Blaze it!")
             {
@@ -71,12 +65,10 @@ namespace P04_CODE
 
                 newDict.Add(teamleader.Key, teamMembersCount);
             }
-
             foreach (var teamleader in newDict.OrderByDescending(x => x.Value))
             {
                 Console.WriteLine($"{teamleader.Key} : {teamleader.Value} ");
             }
         }
     }
-
 }
