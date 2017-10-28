@@ -22,25 +22,24 @@ namespace P02__Icarus
                 var direction = movesSplited.First();
                 var steps = int.Parse(movesSplited[1]);
 
-
-                for (int i = initialPosition; i < inputList.Count; i++)
+                if (direction == "left")
                 {
-                    if (direction=="left")
+                    for (int i = initialPosition; i > initialPosition - steps; i--)
                     {
-                        inputList[i - steps] = inputList[i - steps] - damage;
-                        initialPosition -= steps;
-                        break;
+                        inputList[i - 1] = inputList[i - 1] - damage;
+                        
                     }
-
-                    if (direction == "right")
-                    {
-                        inputList[i + steps] = inputList[i + steps] - damage;
-                        initialPosition += steps;
-                        break;
-                    }
+                    initialPosition = initialPosition-steps;
 
                 }
 
+                else
+                {
+                    
+
+                }
+
+              
                 moves = Console.ReadLine();
             }
 
