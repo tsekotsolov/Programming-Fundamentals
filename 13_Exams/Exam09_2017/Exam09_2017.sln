@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04_CODE", "P04_CODE\P04_CO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02_ Icarus", "P02_ Icarus\P02_ Icarus.csproj", "{5EE92282-D1C4-41BD-A4ED-E62E363DFD00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P01_Resurrection", "P01_Resurrection\P01_Resurrection.csproj", "{3BA0BF44-C011-48AB-A13F-27803F3F44EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5EE92282-D1C4-41BD-A4ED-E62E363DFD00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EE92282-D1C4-41BD-A4ED-E62E363DFD00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EE92282-D1C4-41BD-A4ED-E62E363DFD00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BA0BF44-C011-48AB-A13F-27803F3F44EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BA0BF44-C011-48AB-A13F-27803F3F44EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BA0BF44-C011-48AB-A13F-27803F3F44EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BA0BF44-C011-48AB-A13F-27803F3F44EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
