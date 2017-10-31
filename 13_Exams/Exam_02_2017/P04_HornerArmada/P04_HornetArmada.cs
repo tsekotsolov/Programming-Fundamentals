@@ -12,29 +12,29 @@ namespace P04_HornerArmada
         class Legion
         {
             public string LegionName { get; set; }
-            public int Activity { get; set; }
-            public Dictionary<string, int> SoldierCount { get; set; } = new Dictionary<string, int>();
+            public long Activity { get; set; }
+            public Dictionary<string, long> SoldierCount { get; set; } = new Dictionary<string, long>();
 
         }
         static void Main()
         {
-            int numberOfInputs = int.Parse(Console.ReadLine());
+            long numberOfInputs = long.Parse(Console.ReadLine());
 
             Dictionary<string, Legion> allLegions = new Dictionary<string, Legion>();
 
 
 
-            for (int i = 0; i < numberOfInputs; i++)
+            for (long i = 0; i < numberOfInputs; i++)
             {
                 var inputLine = Console.ReadLine().Split(new char[] { '=', '-', '>', ':', ' ' },
                     StringSplitOptions.RemoveEmptyEntries);
 
-                var lastActivity = int.Parse(inputLine.First());
+                var lastActivity = long.Parse(inputLine.First());
                 var legionName = inputLine.Skip(1).Take(1).First();
                 var soldierType = inputLine.Skip(2).Take(1).First();
-                var soldierCount = int.Parse(inputLine.Skip(3).First());
+                var soldierCount = long.Parse(inputLine.Skip(3).First());
 
-                Dictionary<string, int> soldiers = new Dictionary<string, int>();
+                Dictionary<string, long> soldiers = new Dictionary<string, long>();
 
 
                 soldiers.Add(soldierType, soldierCount);
@@ -76,11 +76,11 @@ namespace P04_HornerArmada
             if (printCommand.Length > 1)
             {
 
-                var activityMarker = int.Parse(printCommand.First());
+                var activityMarker = long.Parse(printCommand.First());
                 var soldierTypeMarker = printCommand.Skip(1).First();
 
 
-                var output = new Dictionary<string, int>();
+                var output = new Dictionary<string, long>();
 
                 foreach (var legion in allLegions)
                 {
@@ -107,7 +107,7 @@ namespace P04_HornerArmada
             {
                 var soldierTypeMarker = printCommand.First();
 
-                var output = new Dictionary<string, int>();
+                var output = new Dictionary<string, long>();
 
                 foreach (var legion in allLegions)
                 {
