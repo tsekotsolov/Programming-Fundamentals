@@ -34,7 +34,7 @@ namespace P02_HornetComm
                 bool isMessage = containsOnlyDigits && containsDigitsAndLetters;
 
                 bool isBroadcast = !firstQuery.Any(c => Char.IsDigit(c)) && secondQuery.All(c => Char.IsLetterOrDigit(c));
-                
+
                 if (isMessage)
                 {
 
@@ -48,28 +48,70 @@ namespace P02_HornetComm
 
                 else if (isBroadcast)
                 {
-                    broadcastFrequencyList.Add(secondQuery.ToLower());
+
+                    StringBuilder s = new StringBuilder();
+
+                    for (int i = 0; i < secondQuery.Length; i++)
+                    {
+                        
+
+                        if (Char.IsLower(secondQuery[i]))
+                        {
+                            var upperletter = secondQuery[i].ToString().ToUpper()  ;
+                            s.Append(upperletter);
+                        }
+                        else if (Char.IsUpper(secondQuery[i]))
+                        {
+                            var lowerletter = secondQuery[i].ToString().ToLower();
+                            s.Append(lowerletter);
+                        }
+                        else
+                        {
+                            s.Append(secondQuery[i]);
+                        }
+
+                    }
+
+                    broadcastFrequencyList.Add(s.ToString());  
                     broadcastMessageList.Add(firstQuery);
                 }
 
-                
 
                 input = Console.ReadLine();
             }
 
             Console.WriteLine("Broadcasts:");
 
-            for (int i = 0; i < broadcastFrequencyList.Count; i++)
+            if (broadcastFrequencyList.Count != 0)
             {
-                Console.WriteLine($"{broadcastFrequencyList[i]} -> {broadcastMessageList[i]}");
+                for (int i = 0; i < broadcastFrequencyList.Count; i++)
+                {
+                    Console.WriteLine($"{broadcastFrequencyList[i]} -> {broadcastMessageList[i]}");
+                }
             }
+
+            else
+            {
+                Console.WriteLine("None");
+            }
+
 
             Console.WriteLine("Messages:");
 
-            for (int i = 0; i < messageRecipientList .Count; i++)
+            if (messageRecipientList.Count != 0)
             {
-                Console.WriteLine($"{messageRecipientList[i]} -> {messageMessageList[i]}");
+                for (int i = 0; i < messageRecipientList.Count; i++)
+                {
+                    Console.WriteLine($"{messageRecipientList[i]} -> {messageMessageList[i]}");
+                }
             }
+
+            else
+            {
+                Console.WriteLine("None");
+            }
+
+
 
         }
     }

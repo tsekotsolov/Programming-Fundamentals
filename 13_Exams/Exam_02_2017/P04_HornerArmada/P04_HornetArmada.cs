@@ -84,7 +84,7 @@ namespace P04_HornerArmada
 
                 foreach (var legion in allLegions)
                 {
-                    if (activityMarker > legion.Value.Activity)
+                    if (activityMarker > legion.Value.Activity && legion.Value.SoldierCount.ContainsKey(soldierTypeMarker))
                     {
 
                         output.Add(legion.Key, legion.Value.SoldierCount[soldierTypeMarker]);
