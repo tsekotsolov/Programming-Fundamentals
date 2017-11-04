@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02_PokemonDoNotGo", "P02_P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04_PokemonEvolution", "P04_PokemonEvolution\P04_PokemonEvolution.csproj", "{6F31366F-297C-41F7-895C-222C27398683}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helper", "Helper\Helper.csproj", "{C3AF657F-BF9A-4ABE-85E6-E49C1564AFA7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{6F31366F-297C-41F7-895C-222C27398683}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F31366F-297C-41F7-895C-222C27398683}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F31366F-297C-41F7-895C-222C27398683}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C3AF657F-BF9A-4ABE-85E6-E49C1564AFA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3AF657F-BF9A-4ABE-85E6-E49C1564AFA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3AF657F-BF9A-4ABE-85E6-E49C1564AFA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3AF657F-BF9A-4ABE-85E6-E49C1564AFA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace P04_PokemonEvolution
 {
@@ -10,10 +8,8 @@ namespace P04_PokemonEvolution
     {
         class Pokemon
         {
-            public string Name { get; set; }
-            public List<string> EvoType { get; set; } = new List<string>();
-            public List<int> EvoIndex { get; set; } = new List<int>();
-
+            public string Type { get; set; }
+            public int Index { get; set; }
         }
 
         static void Main()
@@ -21,8 +17,7 @@ namespace P04_PokemonEvolution
 
             var inputLine = Console.ReadLine();
 
-            Dictionary<string, Pokemon> database = new Dictionary<string, Pokemon>();
-
+            Dictionary<string, List<Pokemon>> database = new Dictionary<string, List<Pokemon>>();
 
 
             while (inputLine != "wubbalubbadubdub")
@@ -31,13 +26,48 @@ namespace P04_PokemonEvolution
                 var input = inputLine.Split(new char[] { ' ', '-', '>' }, StringSplitOptions.RemoveEmptyEntries).ToList();
                 var pokemonName = input.First();
 
-                if (input.Count == 1 && database.ContainsKey(pokemonName))
-                {
-                    Console.WriteLine($"# {pokemonName}");
 
-                    for (int i = 0; i < database[pokemonName].EvoType.Count; i++)
+                if (input.Count > 1)
+                {
+                    var evoType = input.Skip(1).First();
+                    var evoIndex = input.Skip(2).Select(int.Parse).First();
+
+                    List<Pokemon> pokemonList = new List<Pokemon>();
+
+                    Pokemon pokemon = new Pokemon
                     {
-                        Console.WriteLine($"{database[pokemonName].EvoType[i]} <-> {database[pokemonName].EvoIndex[i]}");
+
+                        Type = evoType,
+                        Index = evoIndex
+                    };
+
+                    pokemonList.Add(pokemon);
+
+                    if (!database.ContainsKey(pokemonName))
+                    {
+                        database.Add(pokemonName, pokemonList);
+                    }
+
+                    else
+                    {
+                        database[pokemonName].AddRange(pokemonList);
+                    }
+
+                    inputLine = Console.ReadLine();
+                }
+
+                else
+                {
+
+                    if (database.ContainsKey(pokemonName))
+                    {
+                        Console.WriteLine($"# {pokemonName}");
+
+
+                        foreach (var item in database[pokemonName])
+                        {
+                            Console.WriteLine($"{item.Type} <-> {item.Index}");
+                        }
                     }
 
                     inputLine = Console.ReadLine();
@@ -45,51 +75,16 @@ namespace P04_PokemonEvolution
 
                 }
 
-
-                var evoType = input.Skip(1).First();
-                var evoIndex = input.Skip(2).Select(int.Parse).First();
-
-
-                List<string> EvoType = new List<string>();
-                List<int> EvoIndex = new List<int>();
-
-                EvoType.Add(evoType);
-                EvoIndex.Add(evoIndex);
-
-                Pokemon pokemon = new Pokemon
-                {
-                    Name = pokemonName,
-                    EvoType = EvoType,
-                    EvoIndex = EvoIndex
-                };
-
-
-
-                if (!database.ContainsKey(pokemonName))
-                {
-                    database.Add(pokemonName, pokemon);
-                }
-
-                else
-                {
-                    database[pokemonName].EvoIndex.Add(evoIndex);
-                    database[pokemonName].EvoType.Add(evoType);
-                }
-
-                inputLine = Console.ReadLine();
             }
-
-            database.OrderByDescending(x => x.Value.EvoIndex.OrderByDescending(z => z));
 
             foreach (var pokemon in database)
             {
                 Console.WriteLine($"# {pokemon.Key}");
 
-                for (int i = 0; i < pokemon.Value.EvoType.Count; i++)
+                foreach (var item in pokemon.Value.OrderByDescending(x => x.Index))
                 {
-                    Console.WriteLine($"{pokemon.Value.EvoType[i]} <-> {pokemon.Value.EvoIndex[i]}");
+                    Console.WriteLine($"{item.Type} <-> {item.Index}");
                 }
-
             }
         }
     }
