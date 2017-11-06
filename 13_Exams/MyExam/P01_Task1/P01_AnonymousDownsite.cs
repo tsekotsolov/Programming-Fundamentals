@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
-using System.Text;
-
 
 namespace AnonymousDownsite
 {
-    
     class P01_AnonymousDownsite
     {
         static void Main()
