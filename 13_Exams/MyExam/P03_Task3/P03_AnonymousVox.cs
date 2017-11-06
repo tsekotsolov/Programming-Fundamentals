@@ -3,19 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Numerics;
 
-namespace P02_Task2
+namespace P03_Task3
 {
-    class Program
+    class P03_AnonymousVox
     {
         static void Main()
         {
-            
         }
-
     }
-
-
 }
-
