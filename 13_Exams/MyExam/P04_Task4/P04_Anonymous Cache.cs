@@ -16,9 +16,10 @@ namespace P04_Task4
 
             var inputLine = Console.ReadLine();
 
+   
             List<string> dataSetList = new List<string>();
 
-            Dictionary<string, List<Data>> majorData = new Dictionary<string, List<Data>>();
+            Dictionary<string, List<Data>> MajorData = new Dictionary<string, List<Data>>();
 
             Dictionary<string, List<Data>> cache = new Dictionary<string, List<Data>>();
 
@@ -34,14 +35,14 @@ namespace P04_Task4
                 {
                     var dataSet = input[0];
 
-                    if (!majorData.ContainsKey(dataSet))
+                    if (!MajorData.ContainsKey(dataSet))
                     {
                         dataSetList.Add(dataSet);
                     }
 
                     if (cache.ContainsKey(dataSet))
                     {
-                        majorData.Add(dataSet, cache[dataSet]);
+                        MajorData.Add(dataSet, cache[dataSet]);
                     }
                 }
 
@@ -59,18 +60,18 @@ namespace P04_Task4
 
                     listOfData.Add(data);
 
-                    if (dataSetList.Contains(dataSet) && !majorData.ContainsKey(dataSet))
+                    if (dataSetList.Contains(dataSet) && !MajorData.ContainsKey(dataSet))
 
                     {
-                        majorData.Add(dataSet, listOfData);
+                        MajorData.Add(dataSet, listOfData);
                     }
 
-                    else if (majorData.ContainsKey(dataSet))
+                    else if (MajorData.ContainsKey(dataSet))
                     {
-                        majorData[dataSet].AddRange(listOfData);
+                        MajorData[dataSet].AddRange(listOfData);
                     }
 
-                    if (!majorData.ContainsKey(dataSet))
+                    if (!MajorData.ContainsKey(dataSet))
                     {
                         if (!cache.ContainsKey(dataSet))
                         {
@@ -88,12 +89,12 @@ namespace P04_Task4
                 inputLine = Console.ReadLine();
             }
 
-            if (majorData.Count!=0)
+            if (MajorData.Count!=0)
             {
                 var maxSum = long.MinValue;
                 var highestSumDataSet = "unknown";
 
-                foreach (var data in majorData)
+                foreach (var data in MajorData)
                 {
                     var sum = 0L;
 
@@ -111,7 +112,7 @@ namespace P04_Task4
 
                 Console.WriteLine($"Data Set: {highestSumDataSet }, Total Size: {maxSum}");
 
-                foreach (var item in majorData)
+                foreach (var item in MajorData)
                 {
                     if (item.Key == highestSumDataSet)
                     {
@@ -120,7 +121,6 @@ namespace P04_Task4
                             Console.WriteLine($"$.{set.DataKey}");
                         }
                     }
-
                 }
             }
         }
