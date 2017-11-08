@@ -98,7 +98,6 @@ namespace P02_Task2
                         sack.Add(lastElement);
                         isModified = true;
                     }
-                    
                 }
 
                 if (isModified)
