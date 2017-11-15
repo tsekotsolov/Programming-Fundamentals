@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace P04_TrainLands
 {
@@ -22,8 +21,9 @@ namespace P04_TrainLands
 
             while (inputLine != "It's Training Men!")
             {
-                var input = inputLine.Split(new char[] { ' ', '-', '>', ':', }, StringSplitOptions.RemoveEmptyEntries)
-                .ToList();
+                var input = inputLine
+                 .Split(new char[] { ' ', '-', '>', ':', }, StringSplitOptions.RemoveEmptyEntries)
+                 .ToList();
 
                 var trainList = new List<Train>();
 
@@ -95,7 +95,6 @@ namespace P04_TrainLands
                         mainTrain[trainName].AddRange(mainTrain[otherTrain]);
                     }
 
-
                 }
 
                 inputLine = Console.ReadLine();
@@ -112,20 +111,20 @@ namespace P04_TrainLands
                     sum += wagon.WagonPower;
                 }
 
-                sortedTrain.Add(train.Key,sum);
-                
+                sortedTrain.Add(train.Key, sum);
+
             }
 
             var finalTrain = new Dictionary<string, List<Train>>();
 
-            foreach (var item in sortedTrain.OrderByDescending(x=>x.Value))
+            foreach (var item in sortedTrain.OrderByDescending(x => x.Value))
             {
-                
+
                 finalTrain.Add(item.Key, mainTrain[item.Key]);
             }
 
             foreach (var train in finalTrain)
-                
+
             {
                 Console.WriteLine($"Train: {train.Key}");
 
