@@ -10,7 +10,7 @@ namespace P04_TrainLands
         class Train
         {
             public string WagonName { get; set; }
-            public int WagonPower { get; set; }
+            public long WagonPower { get; set; }
         }
 
         static void Main()
@@ -25,31 +25,29 @@ namespace P04_TrainLands
                  .Split(new char[] { ' ', '-', '>', ':', }, StringSplitOptions.RemoveEmptyEntries)
                  .ToList();
 
-                var trainList = new List<Train>();
+                
 
                 if (input.Count == 3 && !input.Contains("="))
                 {
                     var trainName = input[0];
                     var wagonName = input[1];
-                    var wagonPower = int.Parse(input[2]);
+                    var wagonPower = long.Parse(input[2]);
 
+                    
                     Train train = new Train()
                     {
                         WagonName = wagonName,
                         WagonPower = wagonPower
                     };
 
-                    trainList.Add(train);
-
+                    
                     if (!mainTrain.ContainsKey(trainName))
                     {
-                        mainTrain.Add(trainName, trainList);
+                        mainTrain[trainName]=new List<Train>();
                     }
 
-                    else
-                    {
-                        mainTrain[trainName].AddRange(trainList);
-                    }
+                    mainTrain[trainName].Add(train);
+                    
                 }
 
                 else if (input.Count == 2 && !input.Contains("="))
@@ -57,24 +55,19 @@ namespace P04_TrainLands
                     var trainName = input[0];
                     var otherTrain = input[1];
 
-                    if (trainName == otherTrain)
+                 
+                    if (!mainTrain.ContainsKey(trainName))
                     {
-                        inputLine = Console.ReadLine();
-                        continue;
+                        mainTrain[trainName]= new List<Train>();
+                       
                     }
 
-                    else if (!mainTrain.ContainsKey(trainName))
-                    {
-                        mainTrain.Add(trainName, mainTrain[otherTrain]);
-                        mainTrain.Remove(otherTrain);
-                    }
-
-                    else
-                    {
-                        mainTrain[trainName].AddRange(mainTrain[otherTrain]);
-                        mainTrain.Remove(otherTrain);
-
-                    }
+                   
+                    mainTrain[trainName].AddRange(mainTrain[otherTrain]);
+                        
+                    
+                
+                    mainTrain.Remove(otherTrain);
                 }
 
                 else
@@ -84,46 +77,26 @@ namespace P04_TrainLands
 
                     if (!mainTrain.ContainsKey(trainName))
                     {
-                        mainTrain.Add(trainName, mainTrain[otherTrain]);
-
+                        mainTrain[trainName] = new List<Train>();
                     }
 
-                    else
-                    {
-                        mainTrain[trainName].RemoveRange(0, mainTrain[trainName].Count);
+                    
+                        mainTrain[trainName].Clear();
 
                         mainTrain[trainName].AddRange(mainTrain[otherTrain]);
-                    }
+                    
 
                 }
 
                 inputLine = Console.ReadLine();
             }
 
+            var sTrain = mainTrain.OrderByDescending(t => t.Value.Sum(p => p.WagonPower))
+                .ThenBy(t => t.Value.Count); ;
 
-            var sortedTrain = new Dictionary<string, int>();
+          
 
-            foreach (var train in mainTrain)
-            {
-                var sum = 0;
-                foreach (var wagon in train.Value)
-                {
-                    sum += wagon.WagonPower;
-                }
-
-                sortedTrain.Add(train.Key, sum);
-
-            }
-
-            var finalTrain = new Dictionary<string, List<Train>>();
-
-            foreach (var item in sortedTrain.OrderByDescending(x => x.Value))
-            {
-
-                finalTrain.Add(item.Key, mainTrain[item.Key]);
-            }
-
-            foreach (var train in finalTrain)
+            foreach (var train in sTrain)
 
             {
                 Console.WriteLine($"Train: {train.Key}");
