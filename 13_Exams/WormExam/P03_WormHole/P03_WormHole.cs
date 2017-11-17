@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace P03_WormHole
 {
@@ -25,7 +23,7 @@ namespace P03_WormHole
                     var currentValueAti = inputLine[i];
                     inputLine[i] = 0;
                     i = currentValueAti-1;
-                    
+
                 }
                
             }

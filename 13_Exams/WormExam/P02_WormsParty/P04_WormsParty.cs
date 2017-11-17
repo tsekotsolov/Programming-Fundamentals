@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace P02_WormsParty
+namespace P04_WormsParty
 {
 
     class P04_WormsParty
