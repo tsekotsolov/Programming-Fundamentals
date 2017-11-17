@@ -13,19 +13,19 @@ namespace P03_WormHole
 
             for (int i = 0; i < inputLine.Count; i++)
             {
-                if (inputLine[i]==0)
+                if (inputLine[i] == 0)
                 {
                     steps++;
                 }
 
                 else
                 {
-                    var currentValueAti = inputLine[i];
+                    var iCurrentValue = inputLine[i];
                     inputLine[i] = 0;
-                    i = currentValueAti-1;
+                    i = iCurrentValue - 1;
 
                 }
-               
+
             }
 
             Console.WriteLine(steps);
