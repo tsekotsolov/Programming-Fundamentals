@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2008
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P01_Wormtest", "P01_Wormtest\P01_Wormtest.csproj", "{DD985DAB-457B-4242-9F38-8CB9E1B8BE04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04_WormsParty", "P02_WormsParty\P04_WormsParty.csproj", "{AA8E59D8-791A-412B-8180-C3EAF354F0B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD985DAB-457B-4242-9F38-8CB9E1B8BE04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD985DAB-457B-4242-9F38-8CB9E1B8BE04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD985DAB-457B-4242-9F38-8CB9E1B8BE04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD985DAB-457B-4242-9F38-8CB9E1B8BE04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA8E59D8-791A-412B-8180-C3EAF354F0B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA8E59D8-791A-412B-8180-C3EAF354F0B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA8E59D8-791A-412B-8180-C3EAF354F0B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA8E59D8-791A-412B-8180-C3EAF354F0B1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {16EB44C6-3135-40EE-9B76-D09813394E89}
+	EndGlobalSection
+EndGlobal
