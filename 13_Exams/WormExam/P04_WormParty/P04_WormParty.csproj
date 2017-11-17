@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AA8E59D8-791A-412B-8180-C3EAF354F0B1}</ProjectGuid>
+    <ProjectGuid>{849D1C14-F811-429D-897D-CD005EDC750B}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>P02_WormsParty</RootNamespace>
-    <AssemblyName>P02_WormsParty</AssemblyName>
+    <RootNamespace>P04_WormParty</RootNamespace>
+    <AssemblyName>P04_WormParty</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="P04_WormsParty.cs" />
+    <Compile Include="P04_WormParty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

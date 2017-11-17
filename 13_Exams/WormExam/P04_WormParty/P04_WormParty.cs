@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace P04_WormsParty
+namespace P04_WormParty
 {
-
-    class P04_WormsParty
+    class P04_WormParty
     {
-
         class Worm
         {
             public string WormName { get; set; }
@@ -79,10 +77,5 @@ namespace P04_WormsParty
             }
 
         }
-
     }
-
 }
-
-
-
