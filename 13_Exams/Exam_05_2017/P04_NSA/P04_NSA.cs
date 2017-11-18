@@ -33,7 +33,6 @@ namespace P04_NSA
                 {
                     SpyName = spyName,
                     DaysInService = daysInService
-
                 };
 
                 if (!spyRegister.ContainsKey(countryName))
@@ -44,11 +43,17 @@ namespace P04_NSA
                 else if (spyRegister[countryName].Any(x => x.SpyName.Contains(spyName)))
                 {
 
-                    spyRegister[countryName]=new List<Spy>();
-
- 
+                    int index = -1;
+                    foreach (var spyPerson in spyRegister[countryName])
+                    {
+                        index++;
+                        if (spyPerson.SpyName == spyName)
+                        {
+                            spyRegister[countryName].RemoveAt(index);
+                            break;
+                        }
+                    }
                 }
-
 
                 spyRegister[countryName].Add(spy);
 
@@ -56,6 +61,11 @@ namespace P04_NSA
 
             }
 
+            PrintResult(spyRegister);
+        }
+
+        private static void PrintResult(Dictionary<string, List<Spy>> spyRegister)
+        {
             foreach (var country in spyRegister.OrderByDescending(x => x.Value.Count))
             {
                 Console.WriteLine($"Country: {country.Key}");
