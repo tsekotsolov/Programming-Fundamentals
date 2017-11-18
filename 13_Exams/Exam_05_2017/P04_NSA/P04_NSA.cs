@@ -17,8 +17,13 @@ namespace P04_NSA
             var inputLine = Console.ReadLine();
 
             var spyRegister = new Dictionary<string, List<Spy>>();
+            inputLine = NewMethod(inputLine, spyRegister);
 
+            PrintResult(spyRegister);
+        }
 
+        private static string NewMethod(string inputLine, Dictionary<string, List<Spy>> spyRegister)
+        {
             while (inputLine != "quit")
             {
 
@@ -61,7 +66,7 @@ namespace P04_NSA
 
             }
 
-            PrintResult(spyRegister);
+            return inputLine;
         }
 
         private static void PrintResult(Dictionary<string, List<Spy>> spyRegister)
