@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace P04_NSA
 {
@@ -23,7 +22,7 @@ namespace P04_NSA
             while (inputLine != "quit")
             {
 
-                var input = inputLine.Split(new[] { " -> " }, StringSplitOptions.None).ToList();
+                var input = inputLine.Split(new[] { " -> " }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
                 var countryName = input[0];
                 var spyName = input[1];
@@ -44,7 +43,10 @@ namespace P04_NSA
 
                 else if (spyRegister[countryName].Any(x => x.SpyName.Contains(spyName)))
                 {
-                    spyRegister[countryName].RemoveRange(0, 1);
+
+                    spyRegister[countryName]=new List<Spy>();
+
+ 
                 }
 
 
@@ -54,9 +56,7 @@ namespace P04_NSA
 
             }
 
-            var sortedSpyRegister = spyRegister.OrderByDescending(x => x.Value.Count);
-
-            foreach (var country in sortedSpyRegister)
+            foreach (var country in spyRegister.OrderByDescending(x => x.Value.Count))
             {
                 Console.WriteLine($"Country: {country.Key}");
 
