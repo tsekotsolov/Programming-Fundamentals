@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Linq;
 
-
 namespace P04_Character_Multiplier
 {
-    class Program
+    class  Multiplier
     {
         static void Main()
         {
@@ -25,17 +24,9 @@ namespace P04_Character_Multiplier
 
             if (firstString.Length != secondString.Length)
             {
-                var resultString = string.Empty;
 
-                if (firstString.Length > secondString.Length)
-                {
-                    resultString = input[0].Substring(secondString.Length);
-                }
-
-                else
-                {
-                    resultString = input[1].Substring(firstString.Length);
-                }
+                var resultString = (firstString.Length > secondString.Length) ?
+                    input[0].Substring(secondString.Length) : input[1].Substring(firstString.Length);
 
                 foreach (var ch in resultString)
                 {
