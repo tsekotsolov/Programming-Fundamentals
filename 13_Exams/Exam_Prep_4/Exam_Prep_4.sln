@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P01_SweetDesserts", "P01_Sw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02_ArrayManipulator", "P02_ArrayManipulator\P02_ArrayManipulator.csproj", "{C3FC7373-421B-4D0E-8C70-FE73ADB540EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P05_GiftRandomizer", "P05_GiftRandomizer\P05_GiftRandomizer.csproj", "{370DB886-7CF6-44F9-9528-20D93512B410}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C3FC7373-421B-4D0E-8C70-FE73ADB540EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3FC7373-421B-4D0E-8C70-FE73ADB540EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3FC7373-421B-4D0E-8C70-FE73ADB540EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{370DB886-7CF6-44F9-9528-20D93512B410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{370DB886-7CF6-44F9-9528-20D93512B410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{370DB886-7CF6-44F9-9528-20D93512B410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{370DB886-7CF6-44F9-9528-20D93512B410}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
