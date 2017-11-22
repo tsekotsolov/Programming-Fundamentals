@@ -3,14 +3,14 @@ using System.Linq;
 
 namespace P04_Character_Multiplier
 {
-    class  Multiplier
+    class Multiplier
     {
         static void Main()
         {
 
-            var input = Console.ReadLine().Split().ToList();
-            var firstString = input[0].ToCharArray();
-            var secondString = input[1].ToCharArray();
+            var input = Console.ReadLine().Split().ToArray();
+            var firstString = input[0];
+            var secondString = input[1];
 
             var cycleIterrations = Math.Min(firstString.Length, secondString.Length);
 
@@ -18,8 +18,8 @@ namespace P04_Character_Multiplier
 
             for (int i = 0; i < cycleIterrations; i++)
             {
-                var product = firstString[i] * secondString[i];
-                sum += product;
+                sum += firstString[i] * secondString[i];
+                 
             }
 
             if (firstString.Length != secondString.Length)
