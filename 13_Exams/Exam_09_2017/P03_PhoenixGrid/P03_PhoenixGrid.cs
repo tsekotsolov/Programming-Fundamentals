@@ -32,7 +32,6 @@ namespace P03_PhoenixGrid
 
         }
 
-
         private static bool ChecksValidity(string[] currentString)
         {
             var isValidMessage = true;
@@ -55,6 +54,8 @@ namespace P03_PhoenixGrid
         {
             var isPalindrome = false;
             var reversedBag = new StringBuilder();
+
+           
 
             for (int i = 0; i < input.Length; i++)
             {
