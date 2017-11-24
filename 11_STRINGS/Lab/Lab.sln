@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P03_TextFilter", "P03_TextF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04_Palindromes", "P04_Palindromes\P04_Palindromes.csproj", "{6D07B424-75EE-436B-AD1A-A55766E50A3E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P05_Randomizer", "P05_Randomizer\P05_Randomizer.csproj", "{77EBB96A-F5DE-417E-B474-80338030DF5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{5134B9E6-1714-42E4-B507-280590C7E052}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{6D07B424-75EE-436B-AD1A-A55766E50A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D07B424-75EE-436B-AD1A-A55766E50A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D07B424-75EE-436B-AD1A-A55766E50A3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77EBB96A-F5DE-417E-B474-80338030DF5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77EBB96A-F5DE-417E-B474-80338030DF5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77EBB96A-F5DE-417E-B474-80338030DF5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77EBB96A-F5DE-417E-B474-80338030DF5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5134B9E6-1714-42E4-B507-280590C7E052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5134B9E6-1714-42E4-B507-280590C7E052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5134B9E6-1714-42E4-B507-280590C7E052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5134B9E6-1714-42E4-B507-280590C7E052}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
