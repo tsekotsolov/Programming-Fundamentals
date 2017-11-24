@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace P03_PhoenixGrid
 {
@@ -10,14 +11,16 @@ namespace P03_PhoenixGrid
         {
             var input = Console.ReadLine();
 
-            while (input!= "ReadMe")
+            while (input != "ReadMe")
             {
-                var currentString = input.Split('.');
+                Regex pattern = new Regex(@"^([^\s_]{3}\.)+([^\s_]{3})*$");
 
-                bool isValidMessage = ChecksValidity(currentString);
+
+
+                bool isValidMessage = pattern.IsMatch(input);
                 bool isPalindrome = ChecksPalindrome(input);
 
-                if (isValidMessage&&isPalindrome)
+                if ((isValidMessage && isPalindrome) || (isPalindrome && input.Length == 3))
                 {
                     Console.WriteLine("YES");
                 }
@@ -32,30 +35,11 @@ namespace P03_PhoenixGrid
 
         }
 
-        private static bool ChecksValidity(string[] currentString)
-        {
-            var isValidMessage = true;
-
-
-            for (int i = 0; i < currentString.Length; i++)
-            {
-                bool isValidPhrase = currentString[i].Length == 3 && !currentString[i].Contains('_') && !currentString[i].Contains(' ') && !currentString[i].Contains('\t');
-                if (!isValidPhrase)
-                {
-                    isValidMessage = false;
-                }
-
-            }
-
-            return isValidMessage;
-        }
-
         private static bool ChecksPalindrome(string input)
         {
             var isPalindrome = false;
             var reversedBag = new StringBuilder();
 
-           
 
             for (int i = 0; i < input.Length; i++)
             {
@@ -73,6 +57,6 @@ namespace P03_PhoenixGrid
             return isPalindrome;
         }
 
-       
+
     }
 }
