@@ -1,9 +1,27 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P01_MatchFullName", "P01_MatchFullName\P01_MatchFullName.csproj", "{E255981F-CC5F-4BF4-8603-5C2C1E27F3E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02_Match Phone Number", "P02_Match Phone Number\P02_Match Phone Number.csproj", "{C0C659FC-08C4-4445-9AD1-5F1FFCDE4C44}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E255981F-CC5F-4BF4-8603-5C2C1E27F3E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E255981F-CC5F-4BF4-8603-5C2C1E27F3E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E255981F-CC5F-4BF4-8603-5C2C1E27F3E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E255981F-CC5F-4BF4-8603-5C2C1E27F3E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0C659FC-08C4-4445-9AD1-5F1FFCDE4C44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0C659FC-08C4-4445-9AD1-5F1FFCDE4C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0C659FC-08C4-4445-9AD1-5F1FFCDE4C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0C659FC-08C4-4445-9AD1-5F1FFCDE4C44}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
