@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
 
@@ -12,11 +9,21 @@ namespace P02_Match_Phone_Number
     {
         static void Main()
         {
-            string pattern = @"^\+359(\s|-)2\1\d{3}\1\d{4}\b$";
 
-            var phones = Console.ReadLine();
+            string phoneString = Console.ReadLine();
 
-            var phoneMatches = Regex.Matches(phones, pattern);
+            var pattern = @"(\+359([ -])2(\2)(\d{3})(\2)(\d{4}))\b";
+
+            List<string> phoneList = new List<string>();
+
+            var matches = Regex.Matches(phoneString, pattern);
+
+            foreach (Match item in matches)
+            {
+                phoneList.Add(item.Value);
+            }
+
+            Console.WriteLine(string.Join(", ", phoneList)); 
 
         }
     }
