@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P01_MatchFullName", "P01_Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02_Match Phone Number", "P02_Match Phone Number\P02_Match Phone Number.csproj", "{C0C659FC-08C4-4445-9AD1-5F1FFCDE4C44}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P06_ReplaceATag", "P06_ReplaceATag\P06_ReplaceATag.csproj", "{B3D8B373-3A7E-4CD0-9487-A8BCFCE8A56F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C0C659FC-08C4-4445-9AD1-5F1FFCDE4C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0C659FC-08C4-4445-9AD1-5F1FFCDE4C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0C659FC-08C4-4445-9AD1-5F1FFCDE4C44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3D8B373-3A7E-4CD0-9487-A8BCFCE8A56F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3D8B373-3A7E-4CD0-9487-A8BCFCE8A56F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3D8B373-3A7E-4CD0-9487-A8BCFCE8A56F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3D8B373-3A7E-4CD0-9487-A8BCFCE8A56F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

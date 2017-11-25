@@ -12,6 +12,11 @@ namespace P02_Match_Phone_Number
     {
         static void Main()
         {
+            string pattern = @"^\+359(\s|-)2\1\d{3}\1\d{4}\b$";
+
+            var phones = Console.ReadLine();
+
+            var phoneMatches = Regex.Matches(phones, pattern);
 
         }
     }
