@@ -111,8 +111,6 @@ namespace P02_HornetComm
                 Console.WriteLine("None");
             }
 
-
-
         }
     }
 }
