@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
 namespace P03_Trainegram
@@ -12,7 +9,7 @@ namespace P03_Trainegram
         static void Main()
         {
             
-            var pattern = @"^(<\[([^A-Za-z0-9]+?)?\]\.)((\.\[([A-Za-z0-9+]+)?\]\.)+)?$";
+            var pattern = @"^(<\[([^A-Za-z0-9\n]+?)?\]\.)((\.\[([A-Za-z0-9+]+)?\]\.)+)?$";
 
             var input =Console.ReadLine();
 
