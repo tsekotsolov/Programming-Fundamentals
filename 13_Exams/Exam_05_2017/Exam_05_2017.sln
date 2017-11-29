@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P03_Spyfer", "P03_Spyfer\P0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04_NSA", "P04_NSA\P04_NSA.csproj", "{38789DE0-78BB-48B1-9847-6D77BA484CB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02_SpyGram", "P02_SpyGram\P02_SpyGram.csproj", "{DDC82F26-6E3B-42F2-A569-39D7C3E3A32B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{38789DE0-78BB-48B1-9847-6D77BA484CB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38789DE0-78BB-48B1-9847-6D77BA484CB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38789DE0-78BB-48B1-9847-6D77BA484CB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDC82F26-6E3B-42F2-A569-39D7C3E3A32B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDC82F26-6E3B-42F2-A569-39D7C3E3A32B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDC82F26-6E3B-42F2-A569-39D7C3E3A32B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDC82F26-6E3B-42F2-A569-39D7C3E3A32B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
