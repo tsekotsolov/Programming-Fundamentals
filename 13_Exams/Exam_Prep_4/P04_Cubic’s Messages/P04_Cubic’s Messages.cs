@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
 namespace P04_Cubic_s_Messages
@@ -21,7 +19,7 @@ namespace P04_Cubic_s_Messages
                 var numberOfCharecters = int.Parse(Console.ReadLine());
                 var message = returnsMessage(input, numberOfCharecters);
 
-                if (message != string.Empty && message.Length == numberOfCharecters)
+                if (message.Length == numberOfCharecters)
                 {
                     var digitPattren = @"[0-9+]";
                     var allDigits = Regex.Matches(input, digitPattren);
