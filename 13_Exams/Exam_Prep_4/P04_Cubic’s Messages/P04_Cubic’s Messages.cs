@@ -35,24 +35,22 @@ namespace P04_Cubic_s_Messages
 
                     }
 
-                    var verificationCodeBag = new StringBuilder();
+                    var verificationCode = new StringBuilder();
 
                     foreach (var index in listofIndexes)
                     {
                         if (index >= 0 && index <= message.Length - 1)
                         {
-                            verificationCodeBag.Append(message[index]);
+                            verificationCode.Append(message[index]);
                         }
                         else
                         {
-                            verificationCodeBag.Append(" ");
+                            verificationCode.Append(" ");
                         }
                     }
 
-                    var verificationCode = verificationCodeBag.ToString();
-
-
-                    result.Add(message, verificationCode);
+                   
+                    result.Add(message, verificationCode.ToString());
 
                 }
 
@@ -69,7 +67,7 @@ namespace P04_Cubic_s_Messages
 
         private static string returnsMessage(string input, int numberOfCharecters)
         {
-            string pattern = @"^([0-9]+)([a-zA-Z]+)([^a-zA-Z]*)$";
+            string pattern = @"^([\d]+)([A-Za-z]+)([^A-Za-z\n]*)$";
             Regex regex = new Regex(pattern);
             Match match = regex.Match(input);
 
