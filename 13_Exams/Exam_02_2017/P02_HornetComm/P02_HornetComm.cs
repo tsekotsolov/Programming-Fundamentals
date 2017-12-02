@@ -2,115 +2,119 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+
 
 namespace P02_HornetComm
 {
-    class P02_HornetComm
+
+    class HornetComm
     {
         static void Main()
         {
             var input = Console.ReadLine();
 
-            List<string> messageRecipientList = new List<string>();
-            List<string> messageMessageList = new List<string>();
 
-            List<string> broadcastFrequencyList = new List<string>();
-            List<string> broadcastMessageList = new List<string>();
 
+            var recepientCode = new List<string>();
+            var recepientMessage = new List<string>();
+
+            var broadcastFrequency = new List<string>();
+            var broadcastMessage = new List<string>();
 
             while (input != "Hornet is Green")
             {
-                var firstQuery = input.Split(new string[] { " <-> " }, StringSplitOptions.None).First();
-
-                var secondQuery = input.Split(new string[] { " <-> " }, StringSplitOptions.RemoveEmptyEntries).Skip(1).First();
+                string firstQuery, secondQuery;
 
 
+                var privatemessagePattern = @"(^[0-9\n]+)\s<->\s([0-9A-Za-z]+)$";
+                var broadcastPattern = @"(^[^0-9\n]+)\s<->\s([0-9A-Za-z]+)$";
 
-                bool containsOnlyDigits = firstQuery.All(c => Char.IsDigit(c));
-
-                bool containsDigitsAndLetters = secondQuery.All(c => Char.IsLetterOrDigit(c));
-
-                bool isMessage = containsOnlyDigits && containsDigitsAndLetters;
-
-                bool isBroadcast = !firstQuery.Any(c => Char.IsDigit(c)) && secondQuery.All(c => Char.IsLetterOrDigit(c));
-
-                if (isMessage)
+                if (Regex.IsMatch(input, privatemessagePattern))
                 {
+                    SplitQueries(input, out firstQuery, out secondQuery);
+                    var code = Reverse(firstQuery);
 
-                    char[] arr = firstQuery.ToCharArray();
-                    Array.Reverse(arr);
-                    var reversed = new string(arr);
-
-                    messageRecipientList.Add(reversed);
-                    messageMessageList.Add(secondQuery);
+                    recepientCode.Add(code);
+                    recepientMessage.Add(secondQuery);
                 }
-
-                else if (isBroadcast)
+                else if (Regex.IsMatch(input, broadcastPattern))
                 {
+                    SplitQueries(input, out firstQuery, out secondQuery);
+                    StringBuilder bag = TransformLetters(secondQuery);
 
-                    StringBuilder s = new StringBuilder();
-
-                    for (int i = 0; i < secondQuery.Length; i++)
-                    {
-                        
-
-                        if (Char.IsLower(secondQuery[i]))
-                        {
-                            var upperletter = secondQuery[i].ToString().ToUpper()  ;
-                            s.Append(upperletter);
-                        }
-                        else if (Char.IsUpper(secondQuery[i]))
-                        {
-                            var lowerletter = secondQuery[i].ToString().ToLower();
-                            s.Append(lowerletter);
-                        }
-                        else
-                        {
-                            s.Append(secondQuery[i]);
-                        }
-
-                    }
-
-                    broadcastFrequencyList.Add(s.ToString());  
-                    broadcastMessageList.Add(firstQuery);
+                    broadcastFrequency.Add(bag.ToString());
+                    broadcastMessage.Add(firstQuery);
                 }
-
 
                 input = Console.ReadLine();
             }
 
+
             Console.WriteLine("Broadcasts:");
-
-            if (broadcastFrequencyList.Count != 0)
-            {
-                for (int i = 0; i < broadcastFrequencyList.Count; i++)
-                {
-                    Console.WriteLine($"{broadcastFrequencyList[i]} -> {broadcastMessageList[i]}");
-                }
-            }
-
-            else
-            {
-                Console.WriteLine("None");
-            }
+            PrintResult(broadcastFrequency, broadcastMessage);
 
 
             Console.WriteLine("Messages:");
+            PrintResult(recepientCode, recepientMessage);
+        }
 
-            if (messageRecipientList.Count != 0)
+        private static void SplitQueries(string input, out string firstQuery, out string secondQuery)
+        {
+            firstQuery = input.Split(new string[] { " <-> " }, StringSplitOptions.None).First();
+            secondQuery = input.Split(new string[] { " <-> " }, StringSplitOptions.None).Skip(1).First();
+        }
+
+        private static StringBuilder TransformLetters(string secondQuery)
+        {
+            var bag = new StringBuilder();
+
+            foreach (var symbol in secondQuery)
             {
-                for (int i = 0; i < messageRecipientList.Count; i++)
+                if (Char.IsUpper(symbol))
                 {
-                    Console.WriteLine($"{messageRecipientList[i]} -> {messageMessageList[i]}");
+                    bag.Append(symbol.ToString().ToLower());
+                }
+                else if (Char.IsLower(symbol))
+                {
+                    bag.Append(symbol.ToString().ToUpper());
+                }
+                else
+                {
+                    bag.Append(symbol);
                 }
             }
 
+            return bag;
+        }
+
+        public static string Reverse(string text)
+        {
+            char[] cArray = text.ToCharArray();
+            string reverse = String.Empty;
+            for (int i = cArray.Length - 1; i > -1; i--)
+            {
+                reverse += cArray[i];
+            }
+            return reverse;
+        }
+
+        private static void PrintResult(List<string> firstListToPrint, List<string> secondListToPrint)
+        {
+
+
+            if (firstListToPrint.Count != 0)
+            {
+
+                for (int i = 0; i < firstListToPrint.Count; i++)
+                {
+                    Console.WriteLine($"{firstListToPrint[i]} -> {secondListToPrint[i]}");
+                }
+            }
             else
             {
                 Console.WriteLine("None");
             }
-
         }
     }
 }
