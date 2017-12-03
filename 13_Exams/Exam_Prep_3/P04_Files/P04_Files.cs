@@ -1,121 +1,66 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 
-namespace P04_Files
+namespace _04.Files
 {
-    class P04_Files
+    public class File
     {
+        public string Name { get; set; }
 
-        class File
+        public string Folder { get; set; }
+
+        public long Size { get; set; }
+
+    }
+
+    public class Files
+    {
+        public static void Main()
         {
-            public long FileSize { get; set; }
-            public List<string> DirList { get; set; }
-            public string FileName { get; set; }
+            var filesNumber = int.Parse(Console.ReadLine());
+            var allFiles = new List<File>();
 
-        }
-        static void Main()
-        {
-            var numberOfInputs = int.Parse(Console.ReadLine());
-
-            var dictOfFiles = new SortedDictionary<string, List<File>>();
-
-            for (int i = 0; i < numberOfInputs; i++)
+            for (int i = 0; i < filesNumber; i++)
             {
-                var input = Console.ReadLine();
+                var input = Console.ReadLine().Split('\\');
+                var fileData = input.Last().Split(';');
+                var fileName = fileData[0];
+                var fileSize = fileData.Last();
 
-                var sizePattern = @"(?<=;)[0-9]+$";
-                var filePattern = @"(?<=\\)([^\\]+)(?=;)"; // the file with it's extension
-                var dirPattern = @"(?<=\\|)([^\\\n]+)(?=\\)";
-                var fileNamePattern = @"^(.+)(?=\.)";
-                var fileExtensionPattern = @"(?<=\.)[^.]+$";
+                var currFile = new File();
+                currFile.Folder = input[0];
+                currFile.Name = fileName;
+                currFile.Size = long.Parse(fileSize);
+                allFiles.Add(currFile);
+            }
 
+            var command = Console.ReadLine().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            var folder = command.Last();
+            var ext = command.First();
 
-                var fileSize = long.Parse(Regex.Match(input, sizePattern).ToString());
+            var results = new Dictionary<string, long>();
 
-                var file = Regex.Match(input, filePattern).ToString().Trim();
-                var fileName = Regex.Match(file, fileNamePattern).ToString().Trim();
-                var fileExtension = Regex.Match(file, fileExtensionPattern).ToString().Trim();
-
-
-                var directories = Regex.Matches(input, dirPattern);
-
-                var listOfDirs = new List<string>();
-
-                foreach (Match dir in directories)
+            foreach (var file in allFiles)
+            {
+                if (file.Folder.Equals(folder) && file.Name.EndsWith(ext))
                 {
-                    listOfDirs.Add(dir.ToString().Trim());
-                }
-
-                File Currentfile = new File
-                {
-
-                    FileSize = fileSize,
-                    FileName = fileName,
-                    DirList = listOfDirs
-
-                };
-
-                var listofFiles = new List<File>();
-                listofFiles.Add(Currentfile);
-
-                if (!dictOfFiles.ContainsKey(fileExtension))
-                {
-                    dictOfFiles.Add(fileExtension, listofFiles);
-                }
-
-                else
-                {
-                    dictOfFiles[fileExtension].AddRange(listofFiles);
+                    results[file.Name] = file.Size;
                 }
             }
 
-            var command = Console.ReadLine();
-            var extension = command.Split(new string[] { " in " }, StringSplitOptions.None).First();
-            var directory = command.Split(new string[] { " in " }, StringSplitOptions.None).Skip(1).First();
-
-           
-
-            var result = new Dictionary<string, long>();
-
-            foreach (var item in dictOfFiles)
-            {
-
-                if (item.Key == extension)
-                {
-                    foreach (var file in item.Value)
-                    {
-
-                        foreach (var list in file.DirList)
-                        {
-                            if (file.DirList.Contains(directory))
-                            {
-                               
-                                if (!result.ContainsKey(file.FileName))
-                                {
-                                    result.Add(file.FileName, file.FileSize);
-                                }
-
-                            }
-                        }
-                    }
-                }
-               
-            }
-
-            if (result.Count!=0)
-            {
-                foreach (var item in result.OrderByDescending(x => x.Value).ThenBy(y => y.Key))
-                {
-                    Console.WriteLine($"{item.Key}.{extension} - {item.Value} KB");
-                }
-            }
-            else
+            if (results.Count == 0)
             {
                 Console.WriteLine("No");
             }
-            
+
+            else
+            {
+                foreach (var result in results.OrderByDescending(r => r.Value).ThenBy(r => r.Key))
+                {
+                    Console.WriteLine($"{result.Key} - {result.Value} KB");
+                }
+            }
         }
     }
 }
