@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P01_CoffeeOrders", "P01_CoffeeOrders\P01_CoffeeOrders.csproj", "{3FA53391-CDB7-4C0A-ACFD-B3B8CCB1549E}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P03_Rage Quit", "P03_Rage Quit\P03_Rage Quit.csproj", "{8B9D2D06-D4AC-4650-B68B-3EF2582C2B8C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04_Files", "P04_Files\P04_Files.csproj", "{95D8D755-020E-43A1-8987-F1D509017CFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P05_FilesNew", "P05_FilesNew\P05_FilesNew.csproj", "{CC647380-836D-46DB-AE9B-111B14F068A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{95D8D755-020E-43A1-8987-F1D509017CFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95D8D755-020E-43A1-8987-F1D509017CFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95D8D755-020E-43A1-8987-F1D509017CFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC647380-836D-46DB-AE9B-111B14F068A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC647380-836D-46DB-AE9B-111B14F068A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC647380-836D-46DB-AE9B-111B14F068A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC647380-836D-46DB-AE9B-111B14F068A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
