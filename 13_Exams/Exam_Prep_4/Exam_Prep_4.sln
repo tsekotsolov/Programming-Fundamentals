@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P05_GiftRandomizer", "P05_G
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04_Cubic’s Messages", "P04_Cubic’s Messages\P04_Cubic’s Messages.csproj", "{C3F2D3AC-EB3D-4596-A1B9-B26956DF2295}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P03_FootballLeague", "P03_FootballLeague\P03_FootballLeague.csproj", "{ECB4316E-D800-46DB-BD89-E5BCB5612993}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C3F2D3AC-EB3D-4596-A1B9-B26956DF2295}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3F2D3AC-EB3D-4596-A1B9-B26956DF2295}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3F2D3AC-EB3D-4596-A1B9-B26956DF2295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECB4316E-D800-46DB-BD89-E5BCB5612993}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECB4316E-D800-46DB-BD89-E5BCB5612993}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECB4316E-D800-46DB-BD89-E5BCB5612993}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECB4316E-D800-46DB-BD89-E5BCB5612993}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
