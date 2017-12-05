@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-
 namespace P04_Roli_The_Coder
 {
-    class Program
+    class P04_Roli_The_Coder
     {
         class Event
         {
