@@ -11,14 +11,14 @@ namespace P01_Charity_Marathon
             var numberOfParticipants = long.Parse(Console.ReadLine());
             var averageLapsPerParticipant =byte.Parse(Console.ReadLine());
             var lenghtOfTrack = int.Parse(Console.ReadLine());
-            var capacityOfTrack = short.Parse(Console.ReadLine());
+            var capacityOfTrackPerDay = short.Parse(Console.ReadLine());
             decimal cashperKilometer = decimal.Parse(Console.ReadLine());
 
 
 
-            if (numberOfParticipants > capacityOfTrack * marathonDuration)
+            if (numberOfParticipants > capacityOfTrackPerDay * marathonDuration)
             {
-                numberOfParticipants = capacityOfTrack*marathonDuration;
+                numberOfParticipants = capacityOfTrackPerDay*marathonDuration;
             }
 
             long totalKiloMeters = numberOfParticipants * averageLapsPerParticipant * lenghtOfTrack / 1000;
