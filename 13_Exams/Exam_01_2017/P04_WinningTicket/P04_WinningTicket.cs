@@ -18,23 +18,21 @@ namespace P04_WinningTicket
                     var secondHalf = input[i].Substring(10, 10);
 
                     var luckyPattern = @"\${6,9}|\@{6,9}|\#{6,9}|\^{6,9}";
-
                     var jackpotPattern = @"\${20}|\@{20}|\#{20}|\^{20}";
 
                     var firstMatch = Regex.Match(firstHalf, luckyPattern).ToString();
                     var secondMatch = Regex.Match(secondHalf, luckyPattern).ToString();
 
+                    bool isWinningTicket = firstMatch.Length >= 6 && secondMatch.Length >= 6 && firstMatch[0] == secondMatch[0];
+                    bool isJackPot = Regex.IsMatch(input[i], jackpotPattern);
 
 
-                    if (Regex.IsMatch(input[i], jackpotPattern))
+                    if (isJackPot)
                     {
                         Console.WriteLine($@"ticket ""{input[i]}"" - 10{input[i].First()} Jackpot!");
                     }
 
-                    else if (firstMatch.Length >= 6 && secondMatch.Length >= 6
-                        && firstMatch != string.Empty
-                        && secondMatch != string.Empty
-                        && firstMatch[0] == secondMatch[0])
+                    else if (isWinningTicket)
                     {
                         if (firstMatch.Length > secondMatch.Length)
                         {
