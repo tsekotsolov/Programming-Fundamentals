@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace P01_SinoTheWalker
 {
-    class Program
+    class P01_SinoTheWalker
     {
         static void Main()
         {

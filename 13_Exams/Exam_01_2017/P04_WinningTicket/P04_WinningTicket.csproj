@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BB4F0012-980E-497A-A82A-4AAF28145A13}</ProjectGuid>
+    <ProjectGuid>{D439E179-91E4-4018-A06D-6A12F3A33C63}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>P01_SinoTheWalker</RootNamespace>
-    <AssemblyName>P01_SinoTheWalker</AssemblyName>
+    <RootNamespace>P04_WinningTicket</RootNamespace>
+    <AssemblyName>P04_WinningTicket</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="P01_SinoTheWalker.cs" />
+    <Compile Include="P04_WinningTicket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
