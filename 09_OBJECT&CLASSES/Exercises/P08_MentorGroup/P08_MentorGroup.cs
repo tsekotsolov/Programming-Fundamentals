@@ -11,44 +11,45 @@ namespace P08_MentorGroup
         {
             public List<string> Comments { get; set; } = new List<string>();
             public List<DateTime> Dates { get; set; } = new List<DateTime>();
-            public string Name { get; set; }
+
         }
 
         static void Main()
         {
             var inputLineOfDates = Console.ReadLine();
 
-            SortedDictionary<string, Student> studentsDict = new SortedDictionary<string, Student>();
+            Dictionary<string, Student> studentsDict = new Dictionary<string, Student>();
 
             while (inputLineOfDates != "end of dates")
             {
 
                 var input = inputLineOfDates.Split(' ', ',');
 
+
                 var name = input.First();
 
                 var dates = input
                     .Skip(1)
                     .Select(x => DateTime.ParseExact(x, "dd/MM/yyyy", CultureInfo.InvariantCulture))
-                    .OrderBy(x => x)
                     .ToList();
 
                 Student currentstudent = new Student()
                 {
-                    Name = name,
+
                     Dates = dates
                 };
+
                 if (!studentsDict.ContainsKey(name))
 
                 {
                     studentsDict.Add(name, currentstudent);
                 }
 
-                else 
+                else
                 {
-                    
+
                     studentsDict[name].Dates.AddRange(currentstudent.Dates);
-                   
+
                 }
 
                 inputLineOfDates = Console.ReadLine();
@@ -64,7 +65,6 @@ namespace P08_MentorGroup
 
                 var comments = input
                     .Skip(1)
-                    .OrderBy(x => x)
                     .ToList();
 
                 if (studentsDict.ContainsKey(name))
@@ -72,7 +72,7 @@ namespace P08_MentorGroup
                 {
                     Student currentstudent = new Student()
                     {
-                        Name = name,
+
                         Comments = comments
                     };
                     studentsDict[name].Comments.AddRange(currentstudent.Comments);
@@ -81,7 +81,7 @@ namespace P08_MentorGroup
                 inputLineOfComments = Console.ReadLine();
             }
 
-            foreach (var student in studentsDict)
+            foreach (var student in studentsDict.OrderBy(x => x.Key))
             {
                 Console.WriteLine(student.Key);
 
@@ -93,7 +93,7 @@ namespace P08_MentorGroup
                 }
 
                 Console.WriteLine("Dates attended:");
-                foreach (var item in student.Value.Dates)
+                foreach (var item in student.Value.Dates.OrderBy(x => x))
                 {
 
                     Console.WriteLine($"-- {item:dd/MM/yyyy}");
