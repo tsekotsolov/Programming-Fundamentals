@@ -7,7 +7,7 @@ namespace P03_RainCast
     class P03_RainCast
 
     {
-       
+
         static void Main()
         {
             var input = Console.ReadLine();
@@ -39,7 +39,7 @@ namespace P03_RainCast
 
                 else if (Regex.IsMatch(input, sourcePattern))
                 {
-                    if (type != string.Empty)
+                    if (type != string.Empty && source == string.Empty)
                     {
                         Regex regex = new Regex(sourcePattern);
                         Match match = regex.Match(input);
@@ -71,7 +71,6 @@ namespace P03_RainCast
                     source = string.Empty;
 
                 }
-
 
                 input = Console.ReadLine();
             }

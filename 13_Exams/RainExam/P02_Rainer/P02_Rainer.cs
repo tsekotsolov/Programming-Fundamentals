@@ -9,18 +9,18 @@ namespace P02_Rainer
     {
         static void Main()
         {
-            var input = Console.ReadLine().Split().Select(long.Parse).ToList();
+            var input = Console.ReadLine().Split().Select(int.Parse).ToList();
 
             var initialIndex = input.Skip(input.Count - 1).Take(1).ToList().First();
 
             var gameField = input.Take(input.Count - 1).ToList();
 
-            var counter = -1;
+            var counter = 0;
 
-            bool breaker = true;
+            bool isWet = false;
 
 
-            var original = new List<long>();
+            var original = new List<int>();
 
             for (int i = 0; i < gameField.Count; i++)
             {
@@ -28,7 +28,7 @@ namespace P02_Rainer
             }
 
 
-            while (breaker)
+            while (!isWet)
             {
 
                 for (int i = 0; i < gameField.Count; i++)
@@ -42,27 +42,28 @@ namespace P02_Rainer
 
                     if (gameField[i] == 0 && i == initialIndex)
                     {
-                        breaker = false;
+                        isWet = true;
                         break;
-
                     }
-                    else if (gameField[i] == 0 && i != initialIndex)
+                }
+
+
+                if (isWet)
+                {
+                    break;
+                }
+
+                for (int i = 0; i < gameField.Count; i++)
+                {
+                    if (gameField[i] == 0 && i != initialIndex)
                     {
                         gameField[i] = original[i];
                     }
-
                 }
 
-                
-
-                if (breaker)
-                {
-                    initialIndex = long.Parse(Console.ReadLine());
-                }
-
-                counter++;
+                    initialIndex = int.Parse(Console.ReadLine());
+                    counter++;               
             }
-
 
             Console.WriteLine(string.Join(" ", gameField));
 
