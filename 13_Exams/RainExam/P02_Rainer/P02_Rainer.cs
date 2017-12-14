@@ -28,7 +28,7 @@ namespace P02_Rainer
             }
 
 
-            while (!isWet)
+            while (true)
             {
 
                 for (int i = 0; i < gameField.Count; i++)
