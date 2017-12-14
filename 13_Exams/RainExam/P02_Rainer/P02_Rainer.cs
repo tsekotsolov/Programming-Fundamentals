@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace P02_Rainer
 {
@@ -16,7 +15,7 @@ namespace P02_Rainer
 
             var gameField = input.Take(input.Count - 1).ToList();
 
-            var counter = 0;
+            var counter = -1;
 
             bool breaker = true;
 
@@ -34,7 +33,7 @@ namespace P02_Rainer
 
                 for (int i = 0; i < gameField.Count; i++)
                 {
-                    gameField[i] = gameField[i] - 1;
+                    gameField[i] -= 1;
                 }
 
 
@@ -54,20 +53,20 @@ namespace P02_Rainer
 
                 }
 
-                counter++;
+                
 
                 if (breaker)
                 {
                     initialIndex = long.Parse(Console.ReadLine());
                 }
 
-
+                counter++;
             }
 
 
             Console.WriteLine(string.Join(" ", gameField));
 
-            Console.WriteLine(counter - 1);
+            Console.WriteLine(counter);
         }
     }
 }

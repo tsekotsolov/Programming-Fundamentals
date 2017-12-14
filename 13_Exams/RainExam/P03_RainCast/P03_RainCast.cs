@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
 namespace P03_RainCast
@@ -10,21 +7,15 @@ namespace P03_RainCast
     class P03_RainCast
 
     {
-        class RainCast
-        {
-            public string Source { get; set; }
-            public string Forecast { get; set; }
-        }
-
+       
         static void Main()
         {
             var input = Console.ReadLine();
 
-            var typeDangerPattern = @"^Type:\sDanger";
-            var typeWarningPattern = @"^Type:\sWarning";
-            var typeNormalPattern = @"^Type:\sNormal";
-            var sourcePattern = @"^Source:\s[A-Za-z0-9]+$";
-            var foreCastPattern = @"^Forecast:\s[^\.?,!\n]+$";
+
+            var typePattern = @"(^Type:\s)(Normal|Danger|Warning)$";
+            var sourcePattern = @"(^Source:\s)([A-Za-z0-9]+$)";
+            var foreCastPattern = @"(^Forecast:\s)([^\.?,!\n]+$)";
 
             var type = string.Empty;
             var forecast = string.Empty;
@@ -37,69 +28,59 @@ namespace P03_RainCast
 
             while (input != "Davai Emo")
             {
+                if (Regex.IsMatch(input, typePattern) && type == string.Empty)
+                {
+                    Regex regex = new Regex(typePattern);
+                    Match match = regex.Match(input);
 
-                if (type!=string.Empty&&forecast!=String.Empty&&source!=string.Empty)
+                    type = match.Groups[2].ToString();
+                }
+
+
+                else if (Regex.IsMatch(input, sourcePattern))
+                {
+                    if (type != string.Empty)
+                    {
+                        Regex regex = new Regex(sourcePattern);
+                        Match match = regex.Match(input);
+
+                        source = match.Groups[2].ToString();
+                    }
+                }
+
+                else if (Regex.IsMatch(input, foreCastPattern))
+                {
+                    if (type != string.Empty && source != string.Empty)
+                    {
+                        Regex regex = new Regex(foreCastPattern);
+                        Match match = regex.Match(input);
+
+                        forecast = match.Groups[2].ToString();
+                    }
+                }
+
+                if (type != string.Empty && forecast != string.Empty && source != string.Empty)
                 {
                     listType.Add(type);
                     listForecast.Add(forecast);
                     sourceList.Add(source);
 
 
-                     type = string.Empty;
-                     forecast = string.Empty;
-                     source = string.Empty;
+                    type = string.Empty;
+                    forecast = string.Empty;
+                    source = string.Empty;
 
                 }
 
 
-                if (Regex.IsMatch(typeDangerPattern, input))
-                {
-                    type = "(Danger)";
-                }
-
-                else if (Regex.IsMatch(typeWarningPattern, input))
-                {
-                    type = "(Warning)";
-                }
-
-                else if (Regex.IsMatch(typeNormalPattern, input))
-                {
-                    type = "(Normal)";
-                }
-
-                if (Regex.IsMatch(sourcePattern,input))
-                {
-                    if (type!=string.Empty)
-                    {
-                        var fullsource = Regex.Match(source, input).ToString();
-
-                        source = fullsource.Substring(7);
-                    }
-                }
-
-                if (Regex.IsMatch(foreCastPattern,input))
-                {
-                    if (type != string.Empty&&source!=string.Empty)
-                    {
-                        var fullforecast = Regex.Match(foreCastPattern,input).ToString();
-
-                        forecast = fullforecast.Substring(9);
-                    }
-                }
-
-                if (true)
-                {
-
-                }
-
-                
-         
                 input = Console.ReadLine();
             }
 
 
-
-            Console.WriteLine();
+            for (int i = 0; i < listType.Count; i++)
+            {
+                Console.WriteLine($"({listType[i]}) {listForecast[i]} ~ {sourceList[i]}");
+            }
 
         }
     }
